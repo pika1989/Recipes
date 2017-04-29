@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <title>Flask</title>
+    <body>
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Ingredients</th>
+                <th>Time</th>
+                <th>Recipe</th>
+            </thead>
+            <tbody>
+                {% for dish in dishes %}
+                <tr>
+                    <td>{{ dish.name }}</td>
+                    <td>{{ dish.ingredients }}</td>
+                    <td>{{ dish.time }}</td>
+                    <td>{{ dish.recipe }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
