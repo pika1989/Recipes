@@ -1,0 +1,10 @@
+Program for searching recipes by ingredients.
+Uses Python3, Flask, MongoDB
+
+How to deploy:
+
+1. Clone this repository
+2. Install MongoDB
+3. Restore dump from folder recipes: mongorestore -d recipes ./recipes
+4. Install missing python packages: pip3 install -r requirements.txt
+5. Run ./dishes.py
