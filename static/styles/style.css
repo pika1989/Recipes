@@ -1,0 +1,15 @@
+.search{
+    margin-left: 0;
+    width: 350px;
+    margin-top: 60px;
+    height: auto;
+    min-height: 100%;
+}
+
+.div-table{
+    margin: auto;
+    margin-top: 60px;
+    padding-left: 15px;
+    width: 50%;
+    height: 100%;
+}
