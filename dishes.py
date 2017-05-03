@@ -16,8 +16,12 @@ def home_page():
 
 @app.route('/search', methods=['POST'])
 def search():
-    ingredient = request.form.get('ingredient', '')
-    dishes_cursor = mongo.db.dishes.find({'ingredients': ingredient})
+    ingredients = [request.form.get(key) for key in request.form.keys()
+                   if 'ingredient' in key]
+    ingredient_list = []
+    for ingredient in ingredients:
+        ingredient_list.append({'ingredients': ingredient})
+    dishes_cursor = mongo.db.dishes.find({'$or': ingredient_list})
     dishes = [item for item in dishes_cursor]
     return render_template('index.html', dishes=dishes)
 
