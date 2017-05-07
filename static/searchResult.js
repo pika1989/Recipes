@@ -1,3 +1,8 @@
+/**
+ * Necessary actions when page is loaded: handler of click action for buttons
+ * 
+ * @return {bool} 
+ */
 $(document).ready(function() {
   $('#btn_search').click(function() {
     search_by_ingredient();
@@ -10,6 +15,11 @@ $(document).ready(function() {
   });
 });
 
+
+/**
+ * Gets list of ingredients from form, sends request data
+ * to backend, gets results and shows them in table
+ */
 function search_by_ingredient() {
 
   var post_data = {};
@@ -20,20 +30,28 @@ function search_by_ingredient() {
   $.post('/search', post_data)
     .done(function(data) {
     $('#dishTable tbody').empty();
-    var dishes = JSON.parse(data);
-    for(var i = 0; i < dishes.length; i++){
-       $('tbody').append(drawRow(dishes[i]));
+    for(var i = 0; i < data.length; i++){
+       $('tbody').append(drawRow(data[i]));
     }
+    
   });
 }
 
+/**
+ *Forms list of ingredients
+ */
 function add_ingredient() {
    var ingredient = $('#ingredient').val();
    var ingr_array = [];
    ingr_array.push(ingredient);
-   $('#ingredientsList').append('<li><h4>'+ ingredient + '</h4></li>');
+   $('#ingredientsList').append('<li>'+ ingredient + '</li>');
 }
 
+/**
+ *Forms row for table
+ *@param {object} rowData This is a recipe that should be shown on the page  
+ *@return {object} row This is a formed row
+ */
 function drawRow(rowData){
     var row = $('<tr />');
     row.append($('<td>' + rowData.name + '</td>'));
