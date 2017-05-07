@@ -19,7 +19,11 @@ function search_by_ingredient() {
 
   $.post('/search', post_data)
     .done(function(data) {
-    console.log(data);
+    $('#dishTable tbody').empty();
+    var dishes = JSON.parse(data);
+    for(var i = 0; i < dishes.length; i++){
+       $('tbody').append(drawRow(dishes[i]));
+    }
   });
 }
 
@@ -30,4 +34,12 @@ function add_ingredient() {
    $('#ingredientsList').append('<li><h4>'+ ingredient + '</h4></li>');
 }
 
-
+function drawRow(rowData){
+    var row = $('<tr />');
+    row.append($('<td>' + rowData.name + '</td>'));
+    row.append($('<td>' + rowData.ingredients.join(",") + '</td>'));
+    row.append($('<td>' + rowData.time + '</td>'));
+    row.append($('<td>' + rowData.recipe + '</td>'));
+    
+    return row;
+}

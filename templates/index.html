@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
 	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href= "{{ url_for( 'static', filename= 'styles/style.css' ) }}" rel="stylesheet" >
         <script src = "{{ url_for( 'static', filename='jquery-3.2.1.min.js' ) }}"></script>
@@ -24,7 +25,7 @@
 		</form>
 	</div>
 	<div class="div-table">
-	    <table class="table">
+	    <table class="table" id="dishTable">
 		<thead class="active">
 		    <th>Name</th>
 		    <th>Ingredients</th>
