@@ -13,6 +13,14 @@ $(document).ready(function() {
     add_ingredient();
     return false;
   });
+
+  $('#ingredientsList').click(function( event ) {
+    var target = $( event.target );
+    if ( target.is( "li" ) ) {
+      alert( target.index() );
+    return false;
+    }
+  });
 });
 
 
@@ -45,6 +53,13 @@ function add_ingredient() {
    var ingr_array = [];
    ingr_array.push(ingredient);
    $('#ingredientsList').append('<li>'+ ingredient + '</li>');
+}
+
+/**
+ *Deletes selected item from list of ingredients
+ */
+function delete_ingredient(ingredient) {  
+    alert(ingredient + "is clicked")
 }
 
 /**
