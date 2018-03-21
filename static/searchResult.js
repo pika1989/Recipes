@@ -14,13 +14,11 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#ingredientsList').click(function( event ) {
-    var target = $( event.target );
-    if ( target.is( "li" ) ) {
-      alert( target.index() );
+  $('#ingredientsList').on("click", "button", function(event) {
+    delete_ingredient(event, this);
     return false;
-    }
   });
+ 
 });
 
 
@@ -32,7 +30,7 @@ function search_by_ingredient() {
 
   var post_data = {};
   $("li").map(function(id) {
-    post_data['ingredient'+id] = $(this).text();
+    post_data['ingredient'+id] = $(this).text().slice(0, -1);
   });
 
   $.post('/search', post_data)
@@ -51,15 +49,26 @@ function search_by_ingredient() {
 function add_ingredient() {
    var ingredient = $('#ingredient').val();
    var ingr_array = [];
-   ingr_array.push(ingredient);
-   $('#ingredientsList').append('<li>'+ ingredient + '</li>');
+
+   if (ingr_array.includes(ingredient) === false ) {
+       ingr_array.push(ingredient);
+       
+       list_item = '<li>'+ ingredient;
+       delete_btn = '<button type="button" class="close">' + 
+                    '<span aria-hidden="true">&times;</span>' +
+                    '</button></li>'
+                    
+        
+       $('#ingredientsList').append(list_item + delete_btn);
+   }
 }
 
 /**
  *Deletes selected item from list of ingredients
  */
-function delete_ingredient(ingredient) {  
-    alert(ingredient + "is clicked")
+function delete_ingredient(event, button) {  
+    event.preventDefault();
+    $(button).parent().remove();
 }
 
 /**
