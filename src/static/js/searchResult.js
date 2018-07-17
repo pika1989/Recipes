@@ -48,6 +48,7 @@ function search_by_ingredient() {
  */
 function add_ingredient() {
    var ingredient = $('#ingredient').val();
+   console.log(ingredient);
    var ingr_array = [];
 
    if (ingr_array.includes(ingredient) === false ) {

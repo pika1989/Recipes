@@ -1,0 +1,17 @@
+# Byte-compiled files
+*.pyc
+
+# Project config files
+*.conf
+
+#Log files
+*.log
+*.log.*
+
+# virtualenv files
+.venv
+venv/
+ENV/
+bin/
+lib/
+pip-selfcheck.json

@@ -1,0 +1,17 @@
+{% load static %}
+{% load js %}
+{% load bootstrap4  %}
+<!doctype html>
+<html>
+  <head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <link href= "{% static 'css/style.css' %}" rel="stylesheet" >
+    <script href="{% static 'js/searchResult.js' %}"></script>
+    <title>Recipes</title>
+  </head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

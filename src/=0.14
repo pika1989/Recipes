@@ -1,0 +1,12 @@
+Collecting mongoengine
+  Downloading https://files.pythonhosted.org/packages/32/d0/74628eaa7839cd35cd68fdab69f76ee0807652996c668354308d61558d38/mongoengine-0.15.3.tar.gz (145kB)
+Requirement already satisfied: pymongo>=2.7.1 in /home/vbuni/Documents/recipes/lib/python3.5/site-packages (from mongoengine) (3.7.1)
+Collecting six (from mongoengine)
+  Downloading https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
+Building wheels for collected packages: mongoengine
+  Running setup.py bdist_wheel for mongoengine: started
+  Running setup.py bdist_wheel for mongoengine: finished with status 'done'
+  Stored in directory: /home/vbuni/.cache/pip/wheels/e5/05/74/882e63080930dbd5d0a8b18ca4d317c64af57c5696dd3c77e4
+Successfully built mongoengine
+Installing collected packages: six, mongoengine
+Successfully installed mongoengine-0.15.3 six-1.11.0
