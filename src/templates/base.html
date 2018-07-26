@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    {% include 'css.html' %}
+    <title>Recipes</title>
+  </head>
+  <body>
+    <div class='container-fluid'>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    {% include 'js.html' %}
+  </body>
+</html>

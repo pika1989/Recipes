@@ -1,0 +1,25 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+    {% include 'search.html' %}
+	<div class="div-table">
+	    <table class="table" id="dishTable">
+		<thead class="active">
+		    <th>Name</th>
+		    <th>Ingredients</th>
+		    <th>Time</th>
+		    <th>Recipe</th>
+		</thead>
+		<tbody>
+		    {% for dish in dishes %}
+		    <tr>
+			<td>{{ dish.name }}</td>
+		    <td> {{ dish.ingredients|join:', ' }}</td>
+			<td>{{ dish.time }}</td>
+			<td>{{ dish.recipe }}</td>
+		    </tr>
+		    {% endfor %}
+		</tbody>
+	    </table>
+	</div>
+{% endblock %}
