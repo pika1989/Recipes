@@ -1,18 +1,18 @@
-from djongo import models
+from mongoengine import Document, fields
 
 # Create your models here.
-class Dish(models.Model):
-    _id = models.ObjectIdField()
-    name = models.CharField(max_length=300)
-    ingredients = models.ListField()
-    time = models.IntegerField()
-    recipe = models.TextField()
+class Dish(Document):
+    _id = fields.ObjectIdField()
+    name = fields.StringField(max_length=300)
+    ingredients = fields.ListField()
+    time = fields.IntField()
+    recipe = fields.StringField()
 
-    objects = models.DjongoManager()
+    meta = {'collection': 'dishes'}
 
     def __str__(self):
         return self.name
         
-    class Meta:
-        db_table = "dishes"
-        verbose_name_plural = "dishes"
+#    class Meta:
+#        db_table = "dishes"
+#        verbose_name_plural = "dishes"

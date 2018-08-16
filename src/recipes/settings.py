@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+import mongoengine
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap4',
-    'djangojs',
+    
+    'rest_framework',
+    'rest_framework_mongoengine',
+    
     'dishes',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,10 @@ ROOT_URLCONF = 'recipes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+               os.path.join(BASE_DIR, 'templates'),
+               os.path.join(BASE_DIR, 'frontend/templates'),
+           ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,8 +92,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'recipes',
+        'HOST': 'localhost',
     }
 }
+
+mongoengine.connect(
+    db='recipes',
+    host='localhost'
+)
 
 
 # Password validation
@@ -128,6 +141,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'frontend/static'),
 ]
+    
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static-cdn-local')
